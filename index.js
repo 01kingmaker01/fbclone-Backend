@@ -36,5 +36,6 @@ app.get("/", (req, res) => {
 app.use("/posts", postRoutes);
 
 app.all("*", (req, res, next) => {
-  next(new AppError("Not Found!!", 404));
+  res.json({ message: "not found" });
+  next();
 });
